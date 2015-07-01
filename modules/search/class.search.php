@@ -33,6 +33,7 @@ class Jetpack_Search {
 		if ( $query->is_main_query() && $query->is_search() ) {
 			$query->set( 'post__in', array( 0 ) );
 			add_filter( 'the_posts', array( __CLASS__, 'the_posts' ), 10, 2 );
+			add_filter( 'template_include', 'get_index_template' );
 		}
 		return $query;
 	}
