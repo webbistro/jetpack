@@ -86,6 +86,10 @@ class Jetpack_Search {
 		?>
 		<div id="jetpack-search-root">
 			<?php echo get_search_form(); ?>
+			<h2><?php esc_html_e( 'Search Results', 'jetpack' ); ?></h2>
+			<div class="search-results">
+				<p><?php _e( 'Loading<span class="ellipses animate">…</span>', 'jetpack' ); ?></p>
+			</div>
 		</div>
 		<?php
 

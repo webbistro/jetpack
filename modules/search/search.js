@@ -19,4 +19,21 @@
 		event.preventDefault();
 	} );
 
+	function animateEllipses( el ) {
+		switch ( el.innerText ) {
+			case '':
+			case '.':
+			case '..':
+				el.innerText += '.';
+				break;
+			default:
+				el.innerText = '';
+		}
+		setTimeout( animateEllipses, 300, el );
+	}
+
+	$('.ellipses.animate').each( function(){
+		animateEllipses( this );
+	} );
+
 })( window, document, jQuery, jetpackSearchData );
