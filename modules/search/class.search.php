@@ -62,6 +62,8 @@ class Jetpack_Search {
 			'post_title'   => '',
 			'post_content' => '[jetpack-search-template]',
 			'post_excerpt' => '[jetpack-search-template]',
+			'post_date'      => current_time( 'mysql' ),
+			'comment_status' => 'closed',
 		);
 		$posts = array( $post );
 
