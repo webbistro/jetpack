@@ -59,9 +59,9 @@ class Jetpack_Search {
 		add_filter( 'the_excerpt', 'do_shortcode' );
 
 		$post = (object) array(
-			'post_title'   => '',
-			'post_content' => '[jetpack-search-template]',
-			'post_excerpt' => '[jetpack-search-template]',
+			'post_title'     => '',
+			'post_content'   => '[jetpack-search-template]',
+			'post_excerpt'   => '[jetpack-search-template]',
 			'post_date'      => current_time( 'mysql' ),
 			'comment_status' => 'closed',
 		);
