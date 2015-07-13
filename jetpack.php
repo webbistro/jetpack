@@ -17,8 +17,8 @@ define( 'JETPACK__MINIMUM_WP_VERSION', '4.1.1' );
 define( 'JETPACK__VERSION',            '3.7.0-dev' );
 define( 'JETPACK_MASTER_USER',         true );
 define( 'JETPACK__API_VERSION',        1 );
-define( 'JETPACK__PLUGIN_DIR',         plugin_dir_path( __FILE__ ) );
 define( 'JETPACK__PLUGIN_FILE',        __FILE__ );
+define( 'JETPACK__PLUGIN_DIR',         plugin_dir_path( JETPACK__PLUGIN_FILE ) );
 
 defined( 'JETPACK_CLIENT__AUTH_LOCATION' )   or define( 'JETPACK_CLIENT__AUTH_LOCATION', 'header' );
 defined( 'JETPACK_CLIENT__HTTPS' )           or define( 'JETPACK_CLIENT__HTTPS', 'AUTO' );
