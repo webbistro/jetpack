@@ -19,6 +19,7 @@ define( 'JETPACK_MASTER_USER',         true );
 define( 'JETPACK__API_VERSION',        1 );
 define( 'JETPACK__PLUGIN_FILE',        __FILE__ );
 define( 'JETPACK__PLUGIN_DIR',         plugin_dir_path( JETPACK__PLUGIN_FILE ) );
+define( 'JETPACK__LIB_DIR',            JETPACK__PLUGIN_DIR . '_inc/lib/' );
 
 defined( 'JETPACK_CLIENT__AUTH_LOCATION' )   or define( 'JETPACK_CLIENT__AUTH_LOCATION', 'header' );
 defined( 'JETPACK_CLIENT__HTTPS' )           or define( 'JETPACK_CLIENT__HTTPS', 'AUTO' );
@@ -31,7 +32,7 @@ defined( 'JETPACK_PROTECT__API_HOST' )       or define( 'JETPACK_PROTECT__API_HO
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack.php'               );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-network.php'       );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-client.php'        );
-require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-data.php'          );
+require_once( JETPACK__LIB_DIR    . 'class.jetpack-data.php'          );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-client-server.php' );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-sync.php'          );
 require_once( JETPACK__PLUGIN_DIR . 'class.jetpack-options.php'       );
