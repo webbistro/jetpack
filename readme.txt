@@ -9,60 +9,34 @@ Your WordPress, Streamlined.
 
 == Description ==
 
-[Jetpack](http://jetpack.me/) adds powerful features previously only available to WordPress.com users including customization, traffic, mobile, content, and performance tools.
+[Jetpack](http://jetpack.me/install) will show you stats about your traffic, protect you from brute force attacks, speed up your images and photos, and enable other traffic and security features.
 
-**Features include:**
+**Features our users love:**
 
-* **Customization.** Make your WordPress site uniquely yours with *Custom CSS*, *Carousels*, spam-free *Contact Forms*, *Sidebar Widgets*, *Infinite Scroll*, and *Tiled Galleries*.
-* **Mobile theme.** Instant and customizable lightweight responsive theme designed for phones and tablets.
-* **Content tools.** Create and publish richer content with *Post by Email*, *Shortcode Embeds*, *Markdown*, *Beautiful Math*, *Spelling*, and *VideoPress*.
-* **Visitor engagement.** Increase your traffic and keep visitors coming back with *Enhanced Distribution*, spam-free *Comments*, *Shortlinks*, *Likes*, *Notifications*, *Related Posts*, *Publicize*, *Social Sharing*, *Subscriptions*, and *Site Verification Tools*.
-* **Site performance.** Speed up image delivery with the *Photon CDN* and access to visitor *Stats*.
-* **Security.** Keep your WordPress site up, safe, and protected with *Single Sign On*, *Jetpack Monitor*, and *Akismet* anti-spam.
+* **Stats.** Simple and concise stats about your site traffic.
+* **Protect.** World-class protection against brute force attacks.
+* **Photon.** A free, global CDN that speeds up your images and optimizes them for the right device.
+* **Monitor.** Constantly checks your site and let you know the instant we detect down time.
+* **Related Posts.** Shows visitors related content to keep them engaged with your site.
+* **Publicize.** Automatically share posts to social networks to help you get more traffic.
+* **Enhanced distribution.** Reach more users by being included in the WordPress.com Firehose
+* **Single Sign On.** Make sure anyone logging into your site is properly authenticated.
+* **Sharing.** One-click sharing makes it easy for visitors to share your content.
+* **Bulk Management.** Manage multiple plugins over multiple sites from one central dashboard.
+* **Automatic Updates.** Stay safe and up-to-date with automatic plugin updates.
+* **Centralized Posting.** Publish posts to any site from the new WordPress.com editor.
 
-**Our users love:**
-
-* Simple, concise stats with no additional load on your server.
-* Email subscriptions for your blog's posts and your post's comments.
-* Social networking enabled comment system.
-* Likes, allowing your readers to show their appreciation of your posts.
-* Monitor and manage your site's activity with Notifications.
-* Simple, Akismet-backed contact forms.
-* The WP.me URL shortener.
-* Hovercard popups for your commenters via Gravatar.
-* Easily embedded media from popular sites like YouTube, Digg, and Vimeo.
-* The ability to post to your blog from any email client.
-* Integration with social networks including Twitter, Facebook, Tumblr, Path, and LinkedIn.
-* For the Math geeks, a simple way to include beautiful mathematical expressions.
-* A widget for displaying recent tweets.
-* Your readers can easily share your posts via email or their favorite social networks.
-* Improved writing thanks to an AI-based spell, style, and grammar checker.
-* Turn WordPress  galleries into a gorgeous full-screen photo browsing experience.
-* A CSS editor that lets you customize your site design without modifying your theme.
-* A mobile theme that automatically streamlines your site for visitors on mobile devices.
-* Mobile push notifications for new comments via WordPress mobile apps.
-* Allowing applications to securely authenticate and access your site with your permission.
-* Creative formats for your image galleries: mosaic, circles, squares, and a slideshow view.
-* Add post sliders and other highlights to your theme with Featured Content.
-* Omnisearch: Search posts, pages, comments, media, and plugins from one search box.
-* Configure widgets to appear only on certain pages.
-* Upload and insert videos into your posts thanks to VideoPress.
-* Link WordPress and your Google+ Profile to add multiple Google features to your site.
-* Sign in to your self-hosted WordPress site using your WordPress.com account.
-* Receive alerts the moment that site downtime is detected.
+**Other benefits**
+Jetpack also includes various other handy features that allow you to customize the look and feel of your site such as Custom CSS, Custom Widgets, Carousels, Image Galleries, Contact Form, and many more.
 
 **New features**
 We're always improving Jetpack based on your feedback and WordPress development. [Subscribe to our mailing list](http://jetpack.me/coming-soon/) to get notified of new developments.
 
-
-
 == Installation ==
 
-1. Install Jetpack either via the WordPress.org plugin directory, or by uploading the files to your server.
-2. After activating Jetpack, connect to WordPress.com to enable the Jetpack features.
-3. Click the Connect button and log in to a WordPress.com account to authorize the Jetpack connection.
-4. If you don't yet have a WordPress.com account, you can quickly create one after clicking the Connect button.
-5. That's it.  You're ready to go!
+1. Install Jetpack either via the WordPress.org plugin directory, or by [visiting our site](http://jetpack.me/install).
+2. After activating Jetpack, connect to WordPress.com by clicking the Connect button.
+3. If you don't yet have a WordPress.com account, you can quickly create a free one after clicking the Connect button.
 
 If you need additional help [read our detailed instructions, including a video walkthrough](http://jetpack.me/support/installing-jetpack/).
 
