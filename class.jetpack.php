@@ -876,6 +876,7 @@ class Jetpack {
 				 * Let users disconnect if it's development mode, just in case things glitch.
 				 */
 			case 'jetpack_disconnect' :
+
 				/**
 				 * In multisite, can individual site admins manage their own connection?
 				 *
@@ -1378,6 +1379,47 @@ class Jetpack {
 		return (bool) Jetpack_Data::get_access_token( JETPACK_MASTER_USER );
 	}
 
+	/*
+	 * Detect whether this is a local environment
+	 *
+	 * Checks to see if the IP is within a private range, and also
+	 * checks the url for obvious clues to a local environment.
+	 *
+	 * @since 3.8.0
+	 * @uses jetpack_protect_ip_is_private()
+	 * @uses jetpack_protect_get_ip()
+	 * @return string Type of local url || bool false if not local environment
+	 */
+	public static function detect_local_environment_by_ip_or_url() {
+		require_once 'modules/protect/shared-functions.php';
+
+		$local_env = false;
+		$site_url  = site_url();
+
+		if ( isset( $_SERVER['SERVER_ADDR'] ) && jetpack_protect_ip_is_private( $_SERVER['SERVER_ADDR'] ) ) {
+			$local_env = 'private_ip';
+		} else if ( site_url() && false === strpos( site_url(), '.' ) ) {
+			$local_env = 'no_dot_in_domain';
+		} else if ( site_url() ) {
+			// List of commonly known local domain extensions
+			$local_domains = array(
+				'.dev',
+				'.local',
+				'.loc',
+			);
+
+			foreach ( $local_domains as $local_domain ) {
+
+				// Only check the last part of the url
+				if ( strpos( $site_url, $local_domain ) == strlen( $site_url ) - strlen( $local_domain ) ) {
+					$local_env = 'is_dot_' . str_replace( '.', '', $local_domain );
+				}
+			}
+		}
+
+		return $local_env;
+	}
+
 	/**
 	 * Is Jetpack in development (offline) mode?
 	 */
@@ -1386,11 +1428,10 @@ class Jetpack {
 
 		if ( defined( 'JETPACK_DEV_DEBUG' ) ) {
 			$development_mode = JETPACK_DEV_DEBUG;
+		} else if ( self::detect_local_environment_by_ip_or_url() ) {
+			$development_mode = self::detect_local_environment_by_ip_or_url();
 		}
 
-		elseif ( site_url() && false === strpos( site_url(), '.' ) ) {
-			$development_mode = true;
-		}
 		/**
 		 * Filters Jetpack's development mode.
 		 *
@@ -1401,35 +1442,40 @@ class Jetpack {
 		 * @param bool $development_mode Is Jetpack's development mode active.
 		 */
 		return apply_filters( 'jetpack_development_mode', $development_mode );
+
 	}
 
 	/**
-	* Get Jetpack development mode notice text and notice class.
-	*
-	* Mirrors the checks made in Jetpack::is_development_mode
-	*
-	*/
+	 * Get Jetpack development mode notice text and notice class.
+	 *
+	 * Mirrors the checks made in Jetpack::is_development_mode
+	 *
+	 */
 	public static function show_development_mode_notice() {
-		if ( Jetpack::is_development_mode() ) {
+		if ( $local_environment = Jetpack::is_development_mode() ) {
+
 			if ( defined( 'JETPACK_DEV_DEBUG' ) && JETPACK_DEV_DEBUG ) {
-				$notice = sprintf(
-					/* translators: %s is a URL */
-					__( 'In <a href="%s" target="_blank">Development Mode</a>, via the JETPACK_DEV_DEBUG constant being defined in wp-config.php or elsewhere.', 'jetpack' ),
-					'http://jetpack.me/support/development-mode/'
-				);
-			} elseif ( site_url() && false === strpos( site_url(), '.' ) ) {
-				$notice = sprintf(
-					/* translators: %s is a URL */
-					__( 'In <a href="%s" target="_blank">Development Mode</a>, via site URL lacking a dot (e.g. http://localhost).', 'jetpack' ),
-					'http://jetpack.me/support/development-mode/'
-				);
-			} else {
-				$notice = sprintf(
-					/* translators: %s is a URL */
-					__( 'In <a href="%s" target="_blank">Development Mode</a>, via the jetpack_development_mode filter.', 'jetpack' ),
-					'http://jetpack.me/support/development-mode/'
-				);
+				$description = __( 'via the JETPACK_DEV_DEBUG constant being defined in wp-config.php or elsewhere.', 'jetpack' );
 			}
+			else if ( 'private_ip' === $local_environment ) {
+				$description = sprintf( __( 'because your IP address (%s) is in a private range.', 'jetpack' ), $_SERVER['SERVER_ADDR'] );
+			}
+			else if ( 'no_dot_in_domain' === $local_environment ) {
+				$description = __( 'via site URL lacking a dot (e.g. http://localhost).', 'jetpack' );
+			}
+			else if ( in_array( $local_environment, array( 'is_dot_dev', 'is_dot_local', 'is_dot_loc' ) ) ) {
+				$description = __( 'via your domain ending in ', 'jetpack' ) . str_replace( 'is_dot_', '.', $local_environment );
+			}
+			else {
+				$description = __( 'via the jetpack_development_mode filter.', 'jetpack' );
+			}
+
+			$notice = sprintf(
+			/* translators: %s is a URL */
+				__( 'In <a href="%1$s" target="_blank">Development Mode</a>, %2$s', 'jetpack' ),
+				'http://jetpack.me/support/development-mode/',
+				$description
+			);
 
 			echo '<div class="updated" style="border-color: #f0821e;"><p>' . $notice . '</p></div>';
 		}
