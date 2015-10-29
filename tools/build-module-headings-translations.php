@@ -62,8 +62,11 @@ foreach ( $tags as $tag => $files ) {
 	foreach ( $files as $file ) {
 		$file_contents .= "//  - {$file}\r\n";
 	}
-	$file_contents .= "/* translators: This is a search term that relates to a module. We want this to be searchable in multiple languages. */\r\n";
-	$file_contents .= "_x( '{$tag}', 'Module Tag', 'jetpack' );\r\n";
+	if ( substr( $tag, 0, 4 ) == 'dnt:' ) {
+		continue;
+	}
+	$file_contents .= "/* translators: A search keyword to improve discoverability of the Jetpack modules */\r\n";
+	$file_contents .= "_x( '{$tag}', 'Search Keyword', 'jetpack' );\r\n";
 }
 
 file_put_contents( "{$jp_dir}modules/module-headings.php", $file_contents );

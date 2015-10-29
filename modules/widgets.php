@@ -7,7 +7,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Social, Appearance
- * Additional Search Queries: widget, widgets, facebook, gallery, twitter, gravatar, image, rss
+ * Additional Search Queries: widget, widgets, dnt: facebook, gallery, dnt: twitter, dnt: gravatar, image, rss
  */
 
 function jetpack_load_widgets() {
