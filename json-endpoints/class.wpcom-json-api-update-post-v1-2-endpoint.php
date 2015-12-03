@@ -100,6 +100,11 @@ class WPCOM_JSON_API_Update_Post_v1_2_Endpoint extends WPCOM_JSON_API_Update_Pos
 			}
 		}
 
+		// fixes a problem with respecting blog locale when creating the slug
+		if ( function_exists( 'wpcom_switch_to_locale' ) ) {
+			wpcom_switch_to_locale( get_blog_lang_code( $blog_id ) );
+		}
+
 		// If date is set, $this->input will set date_gmt, date still needs to be adjusted for the blog's offset
 		if ( isset( $input['date_gmt'] ) ) {
 			$gmt_offset = get_option( 'gmt_offset' );
