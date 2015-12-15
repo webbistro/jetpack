@@ -1397,7 +1397,6 @@ body {
 // Icons
 // ==========================================================================
 
-.jetpack-modules #site-icon-deprecated .info,
 .modules h3.icon,
 .jetpack-modules .info a {
 	width: auto;
@@ -1569,15 +1568,6 @@ body {
 .jetpack-modules #custom-content-types .info a:before {
 	content: '\f498';
 	font: normal 20px "dashicons";
-}
-
-.modules h3.site-icon:before,
-.jetpack-modules #site-icon .info a:before {
-	content: '\f475';
-}
-
-.jetpack-modules #site-icon-deprecated .info:before {
-	content: '\f475';
 }
 
 

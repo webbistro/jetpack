@@ -119,10 +119,6 @@ _x( 'Embed content from YouTube, Vimeo, SlideShare, and more, no coding necessar
 _x( 'WP.me Shortlinks', 'Module Name', 'jetpack' );
 _x( 'Enable WP.me-powered shortlinks for all posts and pages.', 'Module Description', 'jetpack' );
 
-// modules/site-icon.php
-_x( 'Site Icon', 'Module Name', 'jetpack' );
-_x( 'Add a site icon to your site.', 'Module Description', 'jetpack' );
-
 // modules/sso.php
 _x( 'Single Sign On', 'Module Name', 'jetpack' );
 _x( 'Secure user authentication.', 'Module Description', 'jetpack' );
