@@ -149,10 +149,10 @@ class WPCOM_JSON_API_GET_Site_Endpoint extends WPCOM_JSON_API_Endpoint {
 							}
                         }
                    }
-				} elseif ( function_exists( 'jetpack_site_icon_url' ) && function_exists( 'jetpack_photon_url' ) ) {
+				} elseif ( function_exists( 'get_site_icon_url' ) && function_exists( 'jetpack_photon_url' ) ) {
 					$response[ $key ] = array(
-						'img' => (string) jetpack_photon_url( jetpack_site_icon_url( get_current_blog_id() , 80 ), array( 'w' => 80 ), 'https' ),
-						'ico' => (string) jetpack_photon_url( jetpack_site_icon_url( get_current_blog_id() , 16 ), array( 'w' => 16 ), 'https' ),
+						'img' => (string) jetpack_photon_url( get_site_icon_url( 80, '', get_current_blog_id() ), array( 'w' => 80 ), 'https' ),
+						'ico' => (string) jetpack_photon_url( get_site_icon_url( 16, '', get_current_blog_id() ), array( 'w' => 16 ), 'https' ),
 					);
 				}
 				break;
