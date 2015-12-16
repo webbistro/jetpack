@@ -854,7 +854,7 @@ class Jetpack_Subscriptions_Widget extends WP_Widget {
 				}
 				if ( ! isset ( $_GET['subscribe'] ) || 'success' != $_GET['subscribe'] ) { ?>
 					<p id="subscribe-email">
-						<label id="jetpack-subscribe-label" for="<?php echo esc_attr( $subscribe_field_id ) . '-' . esc_attr( $widget_id ); ?>">
+						<label id="jetpack-subscribe-label-<?php echo esc_attr( $widget_id );?>" for="<?php echo esc_attr( $subscribe_field_id ) . '-' . esc_attr( $widget_id ); ?>">
 							<?php echo !empty( $subscribe_placeholder ) ? esc_html( $subscribe_placeholder ) : esc_html__( 'Email Address:', 'jetpack' ); ?>
 						</label>
 						<input type="email" name="email" required="required" class="required" value="<?php echo esc_attr( $subscribe_email ); ?>" id="<?php echo esc_attr( $subscribe_field_id ) . '-' . esc_attr( $widget_id ); ?>" placeholder="<?php echo esc_attr( $subscribe_placeholder ); ?>" />
@@ -882,7 +882,7 @@ class Jetpack_Subscriptions_Widget extends WP_Widget {
 			(function( d ) {
 				// Creates placeholders for IE
 				if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
-					var label = d.getElementById( 'jetpack-subscribe-label' );
+					var label = d.getElementById( 'jetpack-subscribe-label-<?php echo esc_js( $widget_id);?>' );
 						label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
 						label.style.position = 'absolute';
 						label.style.height   = '1px';
